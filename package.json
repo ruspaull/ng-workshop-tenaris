@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build:staging": "ng build --configuration staging",
+    "build:docker": "docker build -t ng-workshop-tenaris .",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint"
