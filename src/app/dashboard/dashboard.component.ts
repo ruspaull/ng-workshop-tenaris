@@ -1,15 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { PrettyDatePipe } from '../shared/pretty-date.pipe';
+import { ButtonModule } from 'primeng/button';
+import { UsersListComponent } from '../users/users-list/users-list.component';
 
 @Component({
   selector: 'wt-dashboard',
-  imports: [RouterModule, PrettyDatePipe],
+  imports: [RouterModule, ButtonModule, UsersListComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
 })
-export class DashboardComponent {
-  title = 'Dashboard';
-  description = 'This is the dashboard component.';
-  now = new Date();
-}
+export class DashboardComponent {}
