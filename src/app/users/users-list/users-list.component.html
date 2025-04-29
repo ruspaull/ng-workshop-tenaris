@@ -1,15 +1,14 @@
-<!-- <div *ngFor="let user of users$ | async">
-  <div>{{ user.id }}</div>
-  <div>{{ user.firstName }}</div>
-  <div>{{ user.lastName }}</div>
-  <div>{{ user.email }}</div>
-  <div>{{ user.company }}</div>
-  <hr />
-</div> -->
-
-{{ isLoading }}
-
-<div *ngFor="let user of users2">
-  <wt-user-card [user]="user"></wt-user-card>
-  <hr />
+<div class="flex flex-col gap-4 w-full md:w-1/2">
+  <input
+    type="text"
+    pInputText
+    placeholder="Filter users"
+    [ngModel]="usersFilter"
+    (ngModelChange)="onUsersFilterChange($event)"
+  />
+  <div class="flex flex-col gap-4">
+    @for (user of users; track $index) {
+      <wt-user-card [user]="user"></wt-user-card>
+    }
+  </div>
 </div>

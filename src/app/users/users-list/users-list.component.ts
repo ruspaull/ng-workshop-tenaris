@@ -1,44 +1,29 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener } from '@angular/core';
-import { ButtonModule } from 'primeng/button';
-import { Observable } from 'rxjs';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
 import { UserCardComponent } from '../user-card/user-card.component';
 import { User } from '../user.model';
 import { UsersApiService } from '../users-api.service';
 
 @Component({
   selector: 'wt-users-list',
-  imports: [CommonModule, ButtonModule, UserCardComponent],
+  imports: [CommonModule, FormsModule, InputTextModule, UserCardComponent],
   templateUrl: './users-list.component.html',
   styleUrl: './users-list.component.css',
 })
 export class UsersListComponent {
-  isLoading = true;
-  users$: Observable<User[]>;
-  users2: User[] = [];
-
-  @HostListener('window:scroll', ['$event'])
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onScroll() {}
-
-  private counter = 0;
+  users: User[] = [];
+  usersFilter = '';
 
   constructor(private usersApiService: UsersApiService) {
-    this.users$ = this.usersApiService.getUsers();
-    this.loadData();
+    this.usersApiService.getUsers().subscribe((users) => {
+      this.users = users;
+    });
   }
 
-  buttonClickHandler() {
-    console.log('Button clicked!');
-  }
-
-  private async loadData() {
-    try {
-      this.isLoading = true;
-      const users = await this.usersApiService.getUsersPromise();
-      this.users2 = users;
-    } finally {
-      this.isLoading = false;
-    }
+  onUsersFilterChange(value: string) {
+    this.usersFilter = value;
+    // GET users
   }
 }

@@ -1,0 +1,15 @@
+<form class="space-y-4" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class="flex flex-col gap-2">
+    <label for="email">Email</label>
+    <input type="text" pInputText placeholder="Email" formControlName="email" />
+  </div>
+
+  <div class="flex flex-col gap-2">
+    <label for="password">Password</label>
+    <p-password fluid placeholder="password" formControlName="password" />
+  </div>
+
+  <p-button type="submit" label="Login"></p-button>
+</form>
+
+{{ value ?? 'No value' }}

@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { faker } from '@faker-js/faker';
 import { Observable, of } from 'rxjs';
@@ -7,7 +8,11 @@ import { User } from './user.model';
   providedIn: 'root',
 })
 export class UsersApiService {
+  constructor(private http: HttpClient) {}
+
   getUsers(): Observable<User[]> {
+    this.http.get('https://dummyjson.com/products?delay=500').subscribe();
+
     const users = Array.from({ length: 100 }).map(() => ({
       id: faker.string.uuid(),
       firstName: faker.person.firstName(),
@@ -20,7 +25,7 @@ export class UsersApiService {
   }
 
   getUsersPromise(): Promise<User[]> {
-    const users = Array.from({ length: 10000 }).map(() => ({
+    const users = Array.from({ length: 100 }).map(() => ({
       id: faker.string.uuid(),
       firstName: faker.person.firstName(),
       lastName: faker.person.lastName(),

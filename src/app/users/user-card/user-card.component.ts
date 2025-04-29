@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { User } from '../user.model';
@@ -12,9 +12,4 @@ import { User } from '../user.model';
 })
 export class UserCardComponent {
   @Input() user: User | null = null;
-  @Output() deleteUser = new EventEmitter();
-
-  onDeleteUser() {
-    this.deleteUser.emit();
-  }
 }

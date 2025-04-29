@@ -1,8 +1,16 @@
 <p-card *ngIf="user">
-  <div>{{ user.id }}</div>
-  <div>{{ user.firstName }}</div>
-  <div>{{ user.lastName }}</div>
-  <div>{{ user.email }}</div>
-  <div>{{ user.company }}</div>
-  <p-button label="Delete" (click)="onDeleteUser()"></p-button>
+  <div class="flex flex-col gap-2">
+    <div class="flex gap-2">
+      <strong>Name</strong>
+      <span>{{ user.firstName }} {{ user.lastName }}</span>
+    </div>
+    <div class="flex gap-2">
+      <strong>Email</strong>
+      <span>{{ user.email }} </span>
+    </div>
+    <div class="flex gap-2">
+      <strong>Company</strong>
+      <span>{{ user.company }} </span>
+    </div>
+  </div>
 </p-card>
