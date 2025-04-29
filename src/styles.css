@@ -1,6 +1,2 @@
 @import "tailwindcss";
 @plugin "tailwindcss-primeui";
-
-:root {
-  color-scheme: light !important;
-}
