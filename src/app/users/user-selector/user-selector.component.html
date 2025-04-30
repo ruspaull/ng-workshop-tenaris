@@ -1,0 +1,7 @@
+<p-select
+  class="w-full"
+  optionLabel="email"
+  [options]="users"
+  [ngModel]="selectedUser"
+  (ngModelChange)="onSelectedUserChange($event)"
+/>

@@ -1,2 +1,8 @@
 <p>settings works!</p>
 <a routerLink="/dashboard">Dashboard</a>
+
+<wt-user-selector [(ngModel)]="selectedUser"></wt-user-selector>
+<div>Selected user is {{ selectedUser | json }}</div>
+
+
+<p-button label="Reset selected user" (click)="resetUser()"></p-button>

@@ -11,8 +11,6 @@ export class UsersApiService {
   constructor(private http: HttpClient) {}
 
   getUsers(): Observable<User[]> {
-    this.http.get('https://dummyjson.com/products?delay=500').subscribe();
-
     const users = Array.from({ length: 100 }).map(() => ({
       id: faker.string.uuid(),
       firstName: faker.person.firstName(),
